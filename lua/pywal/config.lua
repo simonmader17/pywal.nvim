@@ -224,7 +224,7 @@ M.highlights_base = function (colors)
     NvimTreeSymlink = { fg = colors.color7 },
     NvimTreeFolderIcon = { fg = colors.color2, bg = none },
     NvimTreeStatusLineNC = { bg = none, fg = colors.background },
-	NvimTreeExecFile = { gui = bold, fg = colors.color6 },
+	NvimTreeExecFile = { bold = true, fg = colors.color6 },
 
     -- LspSaga
     LspFloatWinNormal = { bg = none },
