@@ -54,7 +54,7 @@ M.highlights_base = function (colors)
     Substitute = { fg = colors.color1, bg = colors.color6 },
     MoreMsg = { fg = colors.color5 },
     Question = { fg = colors.color5 },
-    EndOfBuffer = { fg = colors.background },
+    EndOfBuffer = { fg = colors.foreground },
     NonText = { fg = colors.color1 },
     Variable = { fg = colors.color5 },
     String = { fg = colors.color12 },
