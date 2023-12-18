@@ -3,7 +3,7 @@ local M = {}
 M.highlights_base = function (colors)
   return {
     Normal = { fg = colors.foreground, bg = none },
-    StatusLineNC = { bg = none, fg = colors.background },
+    StatusLineNC = { bg = none, fg = colors.color8 },
     StatusLine = { bg = none, fg = colors.background },
     SignColumn = { bg = none, fg = colors.background },
     MsgArea = { fg = colors.foreground, bg = none },
