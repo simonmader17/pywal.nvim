@@ -16,8 +16,8 @@ M.highlights_base = function(colors)
 	return {
 		Normal = { fg = colors.foreground, bg = none },
 		StatusLineNC = { bg = none, fg = colors.color8 },
-		StatusLine = { bg = none, fg = lightenDarkenColor(color.background, 10) },
-		SignColumn = { bg = none, fg = lightenDarkenColor(color.background, 10) },
+		StatusLine = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
+		SignColumn = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
 		MsgArea = { fg = colors.foreground, bg = none },
 		ModeMsg = { fg = colors.foreground, bg = none },
 		MsgSeparator = { fg = colors.foreground, bg = none },
@@ -26,8 +26,8 @@ M.highlights_base = function(colors)
 		SpellLocal = { fg = colors.color4 },
 		SpellRare = { fg = colors.color6 },
 		NormalNC = { fg = colors.foreground, bg = none },
-		Pmenu = { fg = colors.foreground, bg = lightenDarkenColor(color.background, 10) },
-		PmenuSel = { fg = lightenDarkenColor(color.background, 10), bg = colors.color4 },
+		Pmenu = { fg = colors.foreground, bg = lightenDarkenColor(colors.background, 10) },
+		PmenuSel = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color4 },
 		WildMenu = { fg = colors.color7, bg = colors.color4 },
 		CursorLineNr = { fg = colors.color1 },
 		Comment = { fg = colors.color1 },
@@ -36,19 +36,19 @@ M.highlights_base = function(colors)
 		LineNr = { fg = colors.color9, bg = none },
 		FloatBorder = { fg = colors.foreground, bg = none },
 		Whitespace = { fg = colors.color1 },
-		VertSplit = { fg = lightenDarkenColor(color.background, 10), bg = colors.color1 },
-		CursorLine = { bg = lightenDarkenColor(color.background, 10) },
+		VertSplit = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color1 },
+		CursorLine = { bg = lightenDarkenColor(colors.background, 10) },
 		CursorColumn = { bg = none },
-		ColorColumn = { bg = lightenDarkenColor(color.background, 10) },
+		ColorColumn = { bg = lightenDarkenColor(colors.background, 10) },
 		NormalFloat = { bg = colors.color8 },
 		Visual = { bg = colors.color1, fg = colors.foreground },
 		VisualNOS = { bg = none },
 		WarningMsg = { fg = colors.color3, bg = none },
-		DiffAdd = { fg = lightenDarkenColor(color.background, 10), bg = colors.color4 },
-		DiffChange = { fg = lightenDarkenColor(color.background, 10), bg = colors.color5 },
-		DiffDelete = { fg = lightenDarkenColor(color.background, 10), bg = colors.color11 },
+		DiffAdd = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color4 },
+		DiffChange = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color5 },
+		DiffDelete = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color11 },
 		QuickFixLine = { bg = colors.color2 },
-		PmenuSbar = { bg = lightenDarkenColor(color.background, 10) },
+		PmenuSbar = { bg = lightenDarkenColor(colors.background, 10) },
 		PmenuThumb = { bg = colors.color2 },
 		MatchParen = { fg = colors.color4, bg = none },
 		Cursor = { fg = colors.foreground, bg = colors.cursor },
@@ -126,10 +126,10 @@ M.highlights_base = function(colors)
 		-- TSBoolean           = { };    -- For booleans.
 		-- TSCharacter         = { };    -- For characters.
 		-- TSComment           = { };    -- For color1 blocks.
-		TSNote = { fg = lightenDarkenColor(color.background, 10), bg = colors.color5 },
+		TSNote = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color5 },
 		TSComment = { fg = colors.color1 },
-		TSWarning = { fg = lightenDarkenColor(color.background, 10), bg = colors.color5 },
-		TSDanger = { fg = lightenDarkenColor(color.background, 10), bg = colors.color3 },
+		TSWarning = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color5 },
+		TSDanger = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color3 },
 		TSConstructor = { fg = colors.color6 }, -- For constructor calls and definitions: `= { }` in Lua, and Java constructors.
 		-- TSConditional       = { };    -- For keywords related to conditionnals.
 		-- TSConstant          = { };    -- For constants
@@ -218,7 +218,7 @@ M.highlights_base = function(colors)
 		-- Telescope
 		TelescopeBorder = { fg = colors.color1, bg = none },
 		TelescopeNormal = { fg = colors.foreground, bg = none },
-		TelescopeSelection = { fg = lightenDarkenColor(color.background, 10), bg = colors.color1 },
+		TelescopeSelection = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color1 },
 
 		-- Indent Blank Line
 		IndentBlanklineChar = { fg = colors.color1, bg = none },
@@ -235,7 +235,7 @@ M.highlights_base = function(colors)
 		NvimTreeImageFile = { fg = colors.foreground },
 		NvimTreeSymlink = { fg = colors.color7 },
 		NvimTreeFolderIcon = { fg = colors.color2, bg = none },
-		NvimTreeStatusLineNC = { bg = none, fg = lightenDarkenColor(color.background, 10) },
+		NvimTreeStatusLineNC = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
 		NvimTreeExecFile = { bold = true, fg = colors.color6 },
 
 		-- LspSaga
