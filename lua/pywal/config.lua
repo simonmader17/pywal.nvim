@@ -15,54 +15,60 @@ end
 local M = {}
 
 M.highlights_base = function(colors)
+	local pywal_background
+	if pcall(vim.cmd, [[ source $HOME/.cache/wal/colors-wal.vim ]]) then
+		pywal_background = none
+	else
+		pywal_background = colors.background
+	end
 	return {
-		Normal = { fg = colors.foreground, bg = none },
-		StatusLineNC = { bg = none, fg = colors.color8 },
-		StatusLine = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
-		SignColumn = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
-		MsgArea = { fg = colors.foreground, bg = none },
-		ModeMsg = { fg = colors.foreground, bg = none },
-		MsgSeparator = { fg = colors.foreground, bg = none },
+		Normal = { fg = colors.foreground, bg = pywal_background },
+		StatusLineNC = { bg = pywal_background, fg = colors.color8 },
+		StatusLine = { bg = pywal_background, fg = lightenDarkenColor(colors.background, 10) },
+		SignColumn = { bg = pywal_background, fg = lightenDarkenColor(colors.background, 10) },
+		MsgArea = { fg = colors.foreground, bg = pywal_background },
+		ModeMsg = { fg = colors.foreground, bg = pywal_background },
+		MsgSeparator = { fg = colors.foreground, bg = pywal_background },
 		SpellBad = { fg = colors.color2 },
 		SpellCap = { fg = colors.color6 },
 		SpellLocal = { fg = colors.color4 },
 		SpellRare = { fg = colors.color6 },
-		NormalNC = { fg = colors.foreground, bg = none },
+		NormalNC = { fg = colors.foreground, bg = pywal_background },
 		Pmenu = { fg = colors.foreground, bg = lightenDarkenColor(colors.background, 10) },
 		PmenuSel = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color4 },
 		WildMenu = { fg = colors.color7, bg = colors.color4 },
 		CursorLineNr = { fg = colors.color1 },
 		Comment = { fg = colors.color1 },
-		Folded = { fg = colors.color4, bg = none },
-		FoldColumn = { fg = colors.color4, bg = none },
-		LineNr = { fg = colors.color9, bg = none },
-		FloatBorder = { fg = colors.foreground, bg = none },
+		Folded = { fg = colors.color4, bg = pywal_background },
+		FoldColumn = { fg = colors.color4, bg = pywal_background },
+		LineNr = { fg = colors.color9, bg = pywal_background },
+		FloatBorder = { fg = colors.foreground, bg = pywal_background },
 		Whitespace = { fg = colors.color1 },
 		VertSplit = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color1 },
 		CursorLine = { bg = lightenDarkenColor(colors.background, 10) },
-		CursorColumn = { bg = none },
+		CursorColumn = { bg = pywal_background },
 		ColorColumn = { bg = lightenDarkenColor(colors.background, 10) },
 		NormalFloat = { bg = colors.color8 },
 		Visual = { bg = colors.color1, fg = colors.foreground },
-		VisualNOS = { bg = none },
-		WarningMsg = { fg = colors.color3, bg = none },
+		VisualNOS = { bg = pywal_background },
+		WarningMsg = { fg = colors.color3, bg = pywal_background },
 		DiffAdd = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color4 },
 		DiffChange = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color5 },
 		DiffDelete = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color11 },
 		QuickFixLine = { bg = colors.color2 },
 		PmenuSbar = { bg = lightenDarkenColor(colors.background, 10) },
 		PmenuThumb = { bg = colors.color2 },
-		MatchParen = { fg = colors.color4, bg = none },
+		MatchParen = { fg = colors.color4, bg = pywal_background },
 		Cursor = { fg = colors.foreground, bg = colors.cursor },
 		lCursor = { fg = colors.foreground, bg = colors.cursor },
 		CursorIM = { fg = colors.foreground, bg = colors.cursor },
 		TermCursor = { fg = colors.foreground, bg = colors.cursor },
 		TermCursorNC = { fg = colors.foreground, bg = colors.cursor },
-		Conceal = { fg = colors.color4, bg = none },
+		Conceal = { fg = colors.color4, bg = pywal_background },
 		Directory = { fg = colors.color4 },
 		SpecialKey = { fg = colors.color4 },
 		Title = { fg = colors.color4 },
-		ErrorMsg = { fg = colors.color11, bg = none },
+		ErrorMsg = { fg = colors.color11, bg = pywal_background },
 		Search = { fg = colors.foreground, bg = colors.color1 },
 		IncSearch = { fg = colors.foreground, bg = colors.color1 },
 		Substitute = { fg = colors.color1, bg = colors.color6 },
@@ -101,19 +107,19 @@ M.highlights_base = function(colors)
 		Debug = { fg = colors.color11 },
 		Delimiter = { fg = colors.foreground },
 		SpecialComment = { fg = colors.color2 },
-		Ignore = { fg = colors.color7, bg = none },
-		Todo = { fg = colors.color11, bg = none },
-		Error = { fg = colors.color11, bg = none },
-		TabLine = { fg = colors.color2, bg = none },
-		TabLineSel = { fg = colors.foreground, bg = none },
-		TabLineFill = { fg = colors.foreground, bg = none },
-		CmpDocumentationBorder = { fg = colors.foreground, bg = none },
-		CmpItemAbbr = { fg = colors.foreground, bg = none },
-		CmpItemAbbrDeprecated = { fg = colors.color2, bg = none },
-		CmpItemAbbrMatch = { fg = colors.color7, bg = none },
-		CmpItemAbbrMatchFuzzy = { fg = colors.color7, bg = none },
-		CmpItemKind = { fg = colors.color4, bg = none },
-		CmpItemMenu = { fg = colors.color2, bg = none },
+		Ignore = { fg = colors.color7, bg = pywal_background },
+		Todo = { fg = colors.color11, bg = pywal_background },
+		Error = { fg = colors.color11, bg = pywal_background },
+		TabLine = { fg = colors.color2, bg = pywal_background },
+		TabLineSel = { fg = colors.foreground, bg = pywal_background },
+		TabLineFill = { fg = colors.foreground, bg = pywal_background },
+		CmpDocumentationBorder = { fg = colors.foreground, bg = pywal_background },
+		CmpItemAbbr = { fg = colors.foreground, bg = pywal_background },
+		CmpItemAbbrDeprecated = { fg = colors.color2, bg = pywal_background },
+		CmpItemAbbrMatch = { fg = colors.color7, bg = pywal_background },
+		CmpItemAbbrMatchFuzzy = { fg = colors.color7, bg = pywal_background },
+		CmpItemKind = { fg = colors.color4, bg = pywal_background },
+		CmpItemMenu = { fg = colors.color2, bg = pywal_background },
 
 		-- treesitter
 
@@ -182,7 +188,7 @@ M.highlights_base = function(colors)
 		-- LspTrouble
 		LspTroubleText = { fg = colors.foreground },
 		LspTroubleCount = { fg = colors.color6, bg = colors.foreground },
-		LspTroubleNormal = { fg = colors.foreground, bg = none },
+		LspTroubleNormal = { fg = colors.foreground, bg = pywal_background },
 
 		-- Illuminate
 		illuminatedWord = { bg = colors.foreground },
@@ -201,9 +207,9 @@ M.highlights_base = function(colors)
 		-- Neogit
 		NeogitBranch = { fg = colors.color6 },
 		NeogitRemote = { fg = colors.color6 },
-		NeogitHunkHeader = { bg = none, fg = colors.foreground },
+		NeogitHunkHeader = { bg = pywal_background, fg = colors.foreground },
 		NeogitHunkHeaderHighlight = { bg = colors.foreground, fg = colors.color7 },
-		NeogitDiffContextHighlight = { bg = none, fg = colors.foreground },
+		NeogitDiffContextHighlight = { bg = pywal_background, fg = colors.foreground },
 		NeogitDiffDeleteHighlight = { fg = colors.color11, bg = colors.color11 },
 		NeogitDiffAddHighlight = { fg = colors.color4, bg = colors.color4 },
 
@@ -218,16 +224,16 @@ M.highlights_base = function(colors)
 		GitSignsDelete = { fg = colors.color11 }, -- diff mode: Deleted line |diff.txt|
 
 		-- Telescope
-		TelescopeBorder = { fg = colors.color1, bg = none },
-		TelescopeNormal = { fg = colors.foreground, bg = none },
+		TelescopeBorder = { fg = colors.color1, bg = pywal_background },
+		TelescopeNormal = { fg = colors.foreground, bg = pywal_background },
 		TelescopeSelection = { fg = lightenDarkenColor(colors.background, 10), bg = colors.color1 },
 
 		-- Indent Blank Line
-		IndentBlanklineChar = { fg = colors.color1, bg = none },
+		IndentBlanklineChar = { fg = colors.color1, bg = pywal_background },
 
 		-- NvimTree
-		NvimTreeNormal = { fg = colors.foreground, bg = none },
-		NvimTreeNormalNC = { fg = colors.foreground, bg = none },
+		NvimTreeNormal = { fg = colors.foreground, bg = pywal_background },
+		NvimTreeNormalNC = { fg = colors.foreground, bg = pywal_background },
 		NvimTreeRootFolder = { fg = colors.color1 },
 		NvimTreeGitDirty = { fg = colors.color5 },
 		NvimTreeGitNew = { fg = colors.color4 },
@@ -236,12 +242,12 @@ M.highlights_base = function(colors)
 		NvimTreeIndentMarker = { fg = colors.foreground },
 		NvimTreeImageFile = { fg = colors.foreground },
 		NvimTreeSymlink = { fg = colors.color7 },
-		NvimTreeFolderIcon = { fg = colors.color2, bg = none },
-		NvimTreeStatusLineNC = { bg = none, fg = lightenDarkenColor(colors.background, 10) },
+		NvimTreeFolderIcon = { fg = colors.color2, bg = pywal_background },
+		NvimTreeStatusLineNC = { bg = pywal_background, fg = lightenDarkenColor(colors.background, 10) },
 		NvimTreeExecFile = { bold = true, fg = colors.color6 },
 
 		-- LspSaga
-		LspFloatWinNormal = { bg = none },
+		LspFloatWinNormal = { bg = pywal_background },
 		LspFloatWinBorder = { fg = colors.foreground },
 		LspSagaBorderTitle = { fg = colors.color7 },
 		LspSagaHoverBorder = { fg = colors.color7 },
@@ -265,7 +271,7 @@ M.highlights_base = function(colors)
 
 		-- BufferLine
 		BufferLineIndicatorSelected = { fg = colors.color5 },
-		BufferLineFill = { bg = none },
+		BufferLineFill = { bg = pywal_background },
 	}
 end
 
